@@ -93,7 +93,7 @@ This project demonstrates a CI/CD workflow using **GitHub Actions**, **Docker**,
 
 ## 🌐 Final Result
 
-The app is available on the EC2 public IP at port 80.
+The app is available on the EC2 public IP at [port 80 ](http://13.61.147.28/)  for some time
 
 <img width="2560" height="1440" alt="Screenshot (3221)" src="https://github.com/user-attachments/assets/aa056f70-ea35-4b30-b69d-cf456ca35873" />
 - inpound rule for http
@@ -107,7 +107,4 @@ The app is available on the EC2 public IP at port 80.
 - MongoDB used is hosted externally (MongoDB Atlas)
 - bonus Kubernetes task was skipped as it was hard to install on freetier t2.micro instance
 
----
-
-## 📁 Directory Overview
 
