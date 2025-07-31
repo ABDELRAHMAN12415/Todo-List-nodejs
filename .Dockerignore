@@ -15,3 +15,5 @@ README-secret.md
 .github/
 # .env (as i passed the mongo-uri with ansible vault for security)
 .env
+# ansible files
+ansible/

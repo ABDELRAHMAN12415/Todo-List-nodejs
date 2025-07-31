@@ -31,7 +31,5 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/fortstak:${{ github.sha }}
             ${{ secrets.DOCKERHUB_USERNAME }}/fortstak:latest
-          build-args: |
-            MONGO_URI: ${{ secrets.MONGO_URI }}
 
           

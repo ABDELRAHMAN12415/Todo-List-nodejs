@@ -1,0 +1,15 @@
+version: '3'
+services:
+  todo-app:
+    image: abdelrahmanvio/fortstak:latest
+    ports:
+      - "80:4000"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30
+
