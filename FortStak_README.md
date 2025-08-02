@@ -36,7 +36,8 @@ This project demonstrates a CI/CD workflow using **GitHub Actions**, **Docker**,
   - Tag with both `latest` and `commit SHA`
   - Push to Docker Hub
 
-<img width="915" height="748" alt="Screenshot 2025-07-31 163819" src="https://github.com/user-attachments/assets/60d194b1-52d6-403f-9053-1e7d0b137363" />
+<img width="1220" height="820" alt="Screenshot 2025-08-02 081338" src="https://github.com/user-attachments/assets/a20d9fae-2f2c-4e6d-b2ec-d0e19639c583" />
+
 
 
 ---
@@ -69,7 +70,8 @@ This project demonstrates a CI/CD workflow using **GitHub Actions**, **Docker**,
 - Ports mapped as `80:4000` for public access
 - 
 
-<img width="847" height="450" alt="image" src="https://github.com/user-attachments/assets/e0e98e9c-4bf9-4300-be7b-3df2fbae7a80" />
+<img width="673" height="550" alt="Screenshot 2025-08-02 081403" src="https://github.com/user-attachments/assets/6b0775a8-c1f6-4ad2-9ee1-6106a075988e" />
+
 
 ---
 
