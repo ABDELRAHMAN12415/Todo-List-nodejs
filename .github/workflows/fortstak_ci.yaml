@@ -1,5 +1,4 @@
 name: FortStak CI
-description: CI workflow for todo-list application
 
 on:
   workflow_dispatch:
@@ -23,7 +22,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build Docker Image for Testing
+      - name: Build and push Docker Image 
         uses: docker/build-push-action@v4
         with:
           context: .
@@ -31,5 +30,6 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/fortstak:${{ github.sha }}
             ${{ secrets.DOCKERHUB_USERNAME }}/fortstak:latest
-
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           
