@@ -78,19 +78,6 @@ Security Group
 | TCP      | 443   | HTTPS                              |
 | TCP      | 4000  | Custom port (e.g., Todo app)       |
 
----
-
-## 📦 User Data Script (EC2)
-
-Each EC2 instance runs a shell script on boot to:
-
-```bash
-#!/bin/bash
-apt update -y
-apt install -y python3 apache2
-systemctl start apache2
-systemctl enable apache2
-
 ```
 -------------------
 🔁 S3 Backend
@@ -101,7 +88,7 @@ To use this bucket as your remote backend, add this block to a backend.tf file:
 ```bash
 terraform {
   backend "s3" {
-    bucket = "backend-tf-test-bucket-sallam"
+    bucket = "backend-tf-test-bucket-Fortstak"
     key    = "terraform/state"
     region = "us-east-1"
   }
@@ -123,39 +110,11 @@ Apply the infrastructure
 ```bash
 terraform apply
 ```
-Destroy (optional)
+Destroy (after you finish)
 ```bash
 terraform destroy
 ```
 ⚠️ Notes
 -Make sure you’ve created an AWS key pair named ----- in the region before applying.
--Your AWS credentials should be exported as environment variables:
-```bash
-export AWS_ACCESS_KEY_ID="..."
-export AWS_SECRET_ACCESS_KEY="..."
-```
+
 -Always use terraform plan before apply.
-
-we can see the pub ip :
-
-<img width="496" height="211" alt="Screenshot 2025-07-31 095655" src="https://github.com/user-attachments/assets/f352a25c-1cce-4439-bc98-0e62397dbe7e" />
-
-
-
-and we can see the ec2 :
-
-
-<img width="1607" height="291" alt="Screenshot 2025-07-31 014831" src="https://github.com/user-attachments/assets/04e24a0e-282f-4245-a8c0-bb4e83fc42ae" />
-
-
-ans we can see when write ip:
-
-
-<img width="1560" height="824" alt="Screenshot 2025-07-31 041257" src="https://github.com/user-attachments/assets/e72aa96c-435b-4771-9fd7-4929479578b7" />
-
-
-
-
-
-
-
