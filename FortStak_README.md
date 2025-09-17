@@ -1,6 +1,15 @@
 # 🛠️ DevOps Project: Automated Deployment with Ansible, Docker, and Watchtower
 
-This project demonstrates a CI/CD workflow using **GitHub Actions**, **Docker**, **Ansible**, and **Watchtower**, deployed on an **AWS EC2** instance.
+👋 Introduction
+This project is part of a DevOps assessment. The goal is to containerize a Node.js TODO application, automate its deployment using CI/CD tools, and run it on an AWS EC2 instance with monitoring and auto-update features.
+I have completed Parts 1 to 3 of the task (excluding the optional Kubernetes part), and this README documents the full process.
+
+
+![chrome_VMgyYeQr3l](https://github.com/user-attachments/assets/94cc91b4-6bd5-4189-a105-c9e1cf79dea9)
+
+
+
+---------------------------------------------------
 
 ---
 
@@ -45,7 +54,7 @@ This project demonstrates a CI/CD workflow using **GitHub Actions**, **Docker**,
 ### 3. Secure MongoDB Credentials
 
 - Used **Ansible Vault** to encrypt MongoDB URI
-- No `.env` file included in the container
+- No `.env` file
 - URI passed as an environment variable at runtime
 
 
@@ -56,19 +65,16 @@ This project demonstrates a CI/CD workflow using **GitHub Actions**, **Docker**,
 - Ansible playbook provisions EC2 with:
   - Docker & Docker Compose
   - Adds EC2 user to Docker group
-
-<img width="2560" height="1440" alt="Screenshot (3217)" src="https://github.com/user-attachments/assets/2bee5ca1-cfe0-4af2-bcbd-8d00d1ae9278" />
-<img width="910" height="264" alt="image" src="https://github.com/user-attachments/assets/62a3db95-0c92-4bf5-8e8c-fd1486712c0b" />
-
+  - copy of the docker compose file
 
 ---
 
 ### 5. Deploying with Docker Compose
 
 - Ansible copies `docker-compose.yml` and runs it
-- Mongo URI injected securely via environment variable
+- Mongo URI injected securely via ansible vault
 - Ports mapped as `80:4000` for public access
-- 
+  
 
 <img width="673" height="550" alt="Screenshot 2025-08-02 081403" src="https://github.com/user-attachments/assets/6b0775a8-c1f6-4ad2-9ee1-6106a075988e" />
 
@@ -98,15 +104,6 @@ This project demonstrates a CI/CD workflow using **GitHub Actions**, **Docker**,
 The app is available on the EC2 public IP at [port 80 ](http://13.61.147.28/)  for some time
 
 <img width="2560" height="1440" alt="Screenshot (3221)" src="https://github.com/user-attachments/assets/aa056f70-ea35-4b30-b69d-cf456ca35873" />
-- inpound rule for http
-<img width="2556" height="680" alt="Screenshot (3222)" src="https://github.com/user-attachments/assets/d66dfe0f-f303-4a95-b204-195e6399852b" />
 
-
----
-
-## 📝 Notes
-
-- MongoDB used is hosted externally (MongoDB Atlas)
-- bonus Kubernetes task was skipped as it was hard to install on freetier t2.micro instance
 
 
