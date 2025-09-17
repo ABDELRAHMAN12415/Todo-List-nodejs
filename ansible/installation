@@ -1,7 +1,6 @@
 ---
-- name: Deploy Docker Compose stack with Watchtower
+- name: install docker and docker compose
   hosts: production
-  become: yes
   vars_files:
     - vault_for_db_creds.yml
 
@@ -17,12 +16,6 @@
         state: started
         enabled: true
 
-    - name: Add ec2-user to docker group
-      user:
-        name: ec2-user
-        groups: docker
-        append: yes
-
     - name: Check if Docker Compose is installed
       stat:
         path: /usr/local/bin/docker-compose
@@ -35,19 +28,23 @@
         mode: '0755'
       when: not compose_bin.stat.exists
 
-    - name: Copy docker-compose.yml to EC2
-      copy:
-        src: ./docker-compose.yml
-        dest: /home/ec2-user/docker-compose.yml
-        owner: ec2-user
-        group: ec2-user
-        mode: '0644'
+    - name: Check if ec2-user user is in docker group
+      command: id -nG ec2-user
+      register: user_groups
 
-    - name: Run docker-compose up
-      become: true
-      command: docker-compose up -d
-      args:
-        chdir: /home/ec2-user
-      environment:
-        MONGO_URI: "{{ MONGO_URI }}"
- 
+    - name: Set flag if user not in docker group
+      set_fact:
+        docker_group_required: false
+      when: "'docker' in user_groups.stdout"
+
+    - name: Add ec2-user to docker group
+      user:
+        name: ec2-user
+        groups: docker
+        append: yes
+      when: docker_group_required
+
+     - name: Reboot server if user was added to docker group
+      reboot:
+        reboot_timeout: 300
+      when: docker_group_required
