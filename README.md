@@ -32,8 +32,6 @@ I have completed Parts 1 to 3 of the task (excluding the optional Kubernetes par
 - `.dockerignore` updated to exclude unnecessary files like `node_modules`, `.env`, and Ansible config
 - App exposes port `4000` inside container
 
-<img width="594" height="293" alt="image" src="https://github.com/user-attachments/assets/1bd20426-c174-4eb3-8b58-8a77cb91c079" />
-<img width="1029" height="567" alt="image" src="https://github.com/user-attachments/assets/f51ccbe3-ded6-4092-ad19-8c56311fdc1c" />
 
 
 ---
@@ -44,8 +42,6 @@ I have completed Parts 1 to 3 of the task (excluding the optional Kubernetes par
   - Build image from source
   - Tag with both `latest` and `commit SHA`
   - Push to Docker Hub
-
-<img width="1220" height="820" alt="Screenshot 2025-08-02 081338" src="https://github.com/user-attachments/assets/a20d9fae-2f2c-4e6d-b2ec-d0e19639c583" />
 
 
 
@@ -74,9 +70,6 @@ I have completed Parts 1 to 3 of the task (excluding the optional Kubernetes par
 - Ansible copies `docker-compose.yml` and runs it
 - Mongo URI injected securely via ansible vault
 - Ports mapped as `80:4000` for public access
-  
-
-<img width="673" height="550" alt="Screenshot 2025-08-02 081403" src="https://github.com/user-attachments/assets/6b0775a8-c1f6-4ad2-9ee1-6106a075988e" />
 
 
 ---
